@@ -1,0 +1,621 @@
+<!DOCTYPE html><script>var __pbpa = true;</script><script>var translated_warning_string = 'Warning: Never enter your Tumblr password unless \u201chttps://www.tumblr.com/login\u201d\x0ais the address in your web browser.\x0a\x0aYou should also see a green \u201cTumblr, Inc.\u201d identification in the address bar.\x0a\x0aSpammers and other bad guys use fake forms to steal passwords.\x0a\x0aTumblr will never ask you to log in from a user\u2019s blog.\x0a\x0aAre you absolutely sure you want to continue?';</script><script type="text/javascript" language="javascript" src="https://assets.tumblr.com/assets/scripts/pre_tumblelog.js?_v=b9f848c06fcba7eaf305d4a7cb7a1b98"></script><!DOCTYPE html><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#"><!-----
+
+
+
+-----><script>
+// <![CDATA[
+var colour="#000"; // what colour are the blobs
+var speed=66; // speed of animation, lower is faster
+var blobs=20; // how many blobs are in the jar
+var charc="✝"; // a blob - can be changed to charc='hello' or charc='*' for a different effect
+ 
+/***************************\
+* Blobs in a Jar Effect *
+* (c)2012 mf2fm web-design *
+* http://www.mf2fm.com/rv *
+* DON'T EDIT BELOW THIS BOX *
+\***************************/
+ 
+window.onload=fill_the_jar;
+var div;
+var xpos=new Array();
+var ypos=new Array();
+var zpos=new Array();
+var dx=new Array();
+var dy=new Array();
+var dz=new Array();
+var blob=new Array();
+var swide=800;
+var shigh=600;
+function fill_the_jar() {
+var i, dvs;
+div=document.createElement('div');
+dvs=div.style;
+dvs.position='fixed';
+dvs.left='0px';
+dvs.top='0px';
+dvs.width='1px';
+dvs.height='1px';
+document.body.appendChild(div);
+set_width();
+for (i=0; i<blobs; i++) {
+add_blob(i);
+jamjar(i);
+}
+}
+ 
+function add_blob(ref) {
+var dv, sy;
+dv=document.createElement('div');
+dv.appendChild(document.createTextNode(charc));
+sy=dv.style;
+sy.position='absolute';
+sy.textAlign="center";
+if (navigator.appName=="Microsoft Internet Explorer") {
+sy.fontSize="10px";
+sy.width="100px";
+sy.height="100px";
+sy.paddingTop="40px";
+sy.color=colour;
+}
+else sy.color='rgba(0,0,0,0)';
+ypos[ref]=Math.floor(shigh*Math.random());
+dy[ref]=(0.5+Math.random())*(Math.random()>.5?2:-2);
+xpos[ref]=Math.floor(swide*Math.random());
+dx[ref]=(0.5+Math.random())*(Math.random()>.5?2:-2);
+zpos[ref]=Math.random()*20;
+dz[ref]=(0.5+Math.random())*(Math.random()>.5?.5:-.5);
+blob[ref]=dv;
+div.appendChild(blob[ref]);
+set_blob(ref);
+}
+function rejig(ref, xy) {
+if (xy=='y') {
+dx[ref]=(0.5+Math.random())*sign(dx[ref]);
+dy[ref]=(0.5+Math.random())*-sign(dy[ref]);
+}
+else {
+dx[ref]=(0.5+Math.random())*-sign(dx[ref]);
+dy[ref]=(0.5+Math.random())*sign(dy[ref]);
+}
+}
+function sign(a) {
+if (a<0) return (-2);
+else if (a>0) return (2);
+else return (0);
+}
+function set_blob(ref) {
+var sy;
+sy=blob[ref].style;
+sy.top=ypos[ref]+'px';
+sy.left=xpos[ref]+'px';
+if (navigator.appName=="Microsoft Internet Explorer") {
+sy.filter="glow(color="+colour+",strength="+zpos[ref]+")";
+sy.fontSize=30-zpos[ref]+"px";
+}
+else {
+sy.textShadow=colour+' 0px 0px '+zpos[ref]+'px';
+sy.fontSize=40+zpos[ref]+'px';
+}
+}
+function jamjar(ref) {
+if (ypos[ref]+dy[ref]<-50 || ypos[ref]+dy[ref]>shigh) rejig(ref, 'y');
+ypos[ref]+=dy[ref];
+if (xpos[ref]+dx[ref]<-50 || xpos[ref]+dx[ref]>swide) rejig(ref, 'x');
+xpos[ref]+=dx[ref];
+if (zpos[ref]+dz[ref]<0 || zpos[ref]+dz[ref]>20) dz[ref]=-dz[ref];
+zpos[ref]+=dz[ref];
+set_blob(ref);
+setTimeout("jamjar("+ref+")", speed);
+}
+ 
+window.onresize=set_width;
+function set_width() {
+var sw_min=999999;
+var sh_min=999999;
+if (document.documentElement && document.documentElement.clientWidth) {
+if (document.documentElement.clientWidth>0) sw_min=document.documentElement.clientWidth;
+if (document.documentElement.clientHeight>0) sh_min=document.documentElement.clientHeight;
+}
+if (typeof(self.innerWidth)!="undefined" && self.innerWidth) {
+if (self.innerWidth>0 && self.innerWidth<sw_min) sw_min=self.innerWidth;
+if (self.innerHeight>0 && self.innerHeight<sh_min) sh_min=self.innerHeight;
+}
+if (document.body.clientWidth) {
+if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
+if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
+}
+if (sw_min==999999 || sh_min==999999) {
+sw_min=800;
+sh_min=600;
+}
+swide=sw_min;
+shigh=sh_min;
+}
+// ]]></script><script src="https://kit.fontawesome.com/f936906ae0.js" crossorigin="anonymous"></script><style>figure{margin:0}.tmblr-iframe{position:absolute}.tmblr-iframe.hide{display:none}.tmblr-iframe--amp-cta-button{visibility:hidden;position:fixed;bottom:10px;left:50%;transform:translateX(-50%);z-index:100}.tmblr-iframe--amp-cta-button.tmblr-iframe--loaded{visibility:visible;animation:iframe-app-cta-transition .2s ease-out}</style><link rel="stylesheet" media="screen" href="https://assets.tumblr.com/client/prod/standalone/blog-network-npf/index.build.css?_v=b84ed2eb31f8e1bbdb3e7a53afa67dd4"><link href="https://static.tumblr.com/0podkko/oDSpg7y88/photosets.css" rel="stylesheet"><meta charset="utf-8"><meta https-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>gott ist tot</title><link rel="shortcut icon" href="https://64.media.tumblr.com/7d3d6fb819e52a41237db03754958882/16578c11625771cf-a8/s2048x3072/7b7328781af7f0acbab7c97c1644f4819de31b5d.png"><link rel="alternate" type="application/rss+xml" href="https://upvote.tumblr.com/rss"><link rel="stylesheet" href="https://static.tumblr.com/qxrkgx6/RWPmgn2qa/normalize.min.css"><script src="https://static.tumblr.com/qxrkgx6/LuRmgn2rm/modernizr-2.6.2.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.1/SmoothScroll.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script><script src="https://static.tumblr.com/rtrqcib/VGGnlh8rf/jquery.style-my-tooltips.min.js"></script><script>(function($){$(document).ready(function(){$("a[title]").style_my_tooltips({tip_follows_cursor:true,tip_delay_time:0,tip_fade_speed:0,attribute:"title"});});})(jQuery);</script><link href="https://fonts.googleapis.com/css?family=Kosugi+Maru|Short+Stack" rel="stylesheet"><link rel="stylesheet" href="https://static.tumblr.com/p6yopnt/PxJr3vu6k/scrollbar.css"><script>
+function gatherData(images, arr) {
+  for (let i = 0; i < images.length; i++) {
+    let currentData = {
+      "width": images[i].getAttribute('data-width'),
+      "height": images[i].getAttribute('data-height'),
+      "low_res": images[i].getAttribute('data-lowres'),
+      "high_res": images[i].getAttribute('data-highres')
+    };
+    arr.push(currentData);
+  }
+}
+function getIndex(elem) {
+  let i = 0;
+  while( (elem = elem.previousElementSibling) != null ) i++;
+  return i;
+}
+function lightbox(elem) {
+  let currentPhotoset = elem.parentNode;
+  let photosetPhotos = currentPhotoset.getElementsByTagName('div');
+  let data = [];
+  gatherData(photosetPhotos, data);
+  Tumblr.Lightbox.init(data, getIndex(elem) + 1);
+}
+</script><link href="https://fonts.googleapis.com/css?family=Advent+Pro|Bebas+Neue|Bellota|Liu+Jian+Mao+Cao|Orbitron|Pacifico|Playfair+Display|Rajdhani&display=swap" rel="stylesheet"><meta name="image:favicon" content=""/><meta name="image:icon" content="https://64.media.tumblr.com/6520604c077856689112f73e36d36899/16578c11625771cf-ea/s2048x3072/f6c8d0a3d0d4fa43aa6aad2fe846084144b94e82.jpg"/><meta name="image:background" content="https://64.media.tumblr.com/8d96a1a1257500666de011e757f31557/16578c11625771cf-88/s2048x3072/4b90424d1ec33b55be65a2af07984043c7921c63.png"/><meta name="image:post background" content=""/><meta name="color:border" content="#fff"/><meta name="color:inner border" content="#fff"/><meta name="color:background" content="#c0c0c0"/><meta name="color:post background" content="#000"/><meta name="color:text" content="#fff"/><meta name="color:links" content="#000"/><meta name="color:links hover" content="#fff"/><meta name="color:links glow" content=""/><meta name="color:links glow hover" content=""/><meta name="color:links outline" content="#fff"/><meta name="color:links outline hover" content="#000"/><meta name="color:title" content="#000"/><meta name="color:title hover" content="#fff"/><meta name="color:title glow" content=""/><meta name="color:title glow hover" content=""/><meta name="color:title outline" content="#fff"/><meta name="color:title outline hover" content="#000"/><meta name="color:box glow" content="#fff"/><meta name="color:tooltip background" content="#000"/><meta name="color:tooltip text" content="#fff"/><meta name="color:selection background" content="#fff"/><meta name="color:selection text" content="#000"/><meta name="color:blob color" content="#000"/><meta name="if:redirect" content=""/><meta name="if:box glow" content=""/><meta name="if:links glow" content=""/><meta name="if:links outline" content="1"/><meta name="if:title glow" content=""/><meta name="if:title outline" content="1"/><meta name="if:hover blur" content=""/><meta name="if:captions" content="1"/><meta name="if:round borders" content=""/><meta name="if:background cover" content=""/><meta name="if:blobs" content="1"/><meta name="select:border style" content="solid"/><meta name="select:border style" content="dashed"/><meta name="select:border style" content="dotted"/><meta name="select:border style" content="double"/><meta name="select:border style" content="inset"/><meta name="select:border style" content="outset"/><meta name="select:border style" content="groove"/><meta name="select:border style" content="ridge"/><meta name="select:inner border style" content="solid"/><meta name="select:inner border style" content="dashed"/><meta name="select:inner border style" content="dotted"/><meta name="select:inner border style" content="double"/><meta name="select:inner border style" content="inset"/><meta name="select:inner border style" content="outset"/><meta name="select:inner border style" content="groove"/><meta name="select:inner border style" content="ridge"/><meta name="text:font size" content="20"/><meta name="text:font" content="arial"/><meta name="text:title size" content="45"/><meta name="text:title font" content="aachen"/><meta name="text:title" content="oh my god!"/><meta name="text:border width" content="0"/><meta name="text:link 1" content="eins"/><meta name="text:link 1 url" content=""/><meta name="text:link 2" content="zwei"/><meta name="text:link 2 url" content=""/><meta name="text:link 3" content="drei"/><meta name="text:link 3 url" content=""/><meta name="text:link 4" content="vier"/><meta name="text:link 4 url" content=""/><meta name="text:blob" content="✟"/><meta name="text:redirect" content=""/>   
+
+<link rel="alternate" href="android-app://com.tumblr/tumblr/x-callback-url/blog?blogName=upvote%26postID=680181356256542720" /><link rel="alternate" href="ios-app://305343404/tumblr/x-callback-url/blog?blogName=upvote&postID=680181356256542720" /><link rel="alternate" type="application/json+oembed" href="https://www.tumblr.com/oembed/1.0?url=https://upvote.tumblr.com/post/680181356256542720/ask" title="Anonymous said: ask
+Answer: answer"/><script src="https://assets.tumblr.com/assets/scripts/tumblelog_post_message_queue.js?_v=a8fadfa499d8cb7c3f8eefdf0b1adfdd"></script><link rel="stylesheet" type="text/css" href="https://assets.tumblr.com/fonts/gibson/stylesheet.css?v=3"><meta name="keywords" content="tag" /><!-- BEGIN TUMBLR FACEBOOK OPENGRAPH TAGS --><!-- If you'd like to specify your own Open Graph tags, define the og:url and og:title tags in your theme's HTML. --><!-- Read more: http://ogp.me/ --><meta property="fb:app_id" content="48119224995" /><meta property="og:title" content="thanks for the gold kind stranger!" /><meta property="og:url" content="https://upvote.tumblr.com/?og=1" /><meta property="og:description" content="" /><meta property="og:type" content="tumblr-feed:tumblelog" /><meta property="og:image" content="https://assets.tumblr.com/images/default_avatar/pyramid_closed_128.png" /><meta property="al:ios:url" content="tumblr://x-callback-url/blog?blogName=upvote" /><meta property="al:ios:app_name" content="Tumblr" /><meta property="al:ios:app_store_id" content="305343404" /><meta property="al:android:url" content="tumblr://x-callback-url/blog?blogName=upvote" /><meta property="al:android:app_name" content="Tumblr" /><meta property="al:android:package" content="com.tumblr" /><!-- END TUMBLR FACEBOOK OPENGRAPH TAGS --><!-- TWITTER TAGS --><meta charset="utf-8"><meta name="twitter:site" content="tumblr" /><meta name="twitter:card" content="summary" /><meta name="twitter:description" content="upvote" /><meta name="twitter:title" content="upvote" /><meta name="twitter:app:name:iphone" content="Tumblr" /><meta name="twitter:app:name:ipad" content="Tumblr" /><meta name="twitter:app:name:googleplay" content="Tumblr" /><meta name="twitter:app:id:iphone" content="305343404" /><meta name="twitter:app:id:ipad" content="305343404" /><meta name="twitter:app:id:googleplay" content="com.tumblr" /><meta name="twitter:app:url:iphone" content="tumblr://x-callback-url/blog?blogName=upvote&amp;referrer=twitter-cards" /><meta name="twitter:app:url:ipad" content="tumblr://x-callback-url/blog?blogName=upvote&amp;referrer=twitter-cards" /><meta name="twitter:app:url:googleplay" content="tumblr://x-callback-url/blog?blogName=upvote&amp;referrer=twitter-cards" /><!-- GOOGLE CAROUSEL --><script type="application/ld+json">
+	{"@type":"ItemList","url":"https:\/\/upvote.tumblr.com","itemListElement":[{"@type":"ListItem","position":1,"url":"https:\/\/upvote.tumblr.com\/post\/683717535789711360\/vocaloid-tunes-god-ish-pinocchio-p-feat"},{"@type":"ListItem","position":2,"url":"https:\/\/upvote.tumblr.com\/post\/683717526574792704\/meltyice-lesroli"},{"@type":"ListItem","position":3,"url":"https:\/\/upvote.tumblr.com\/post\/680181356256542720\/ask"}],"@context":"http:\/\/schema.org"}</script><link rel="canonical" href="https://upvote.tumblr.com" /></head><style type="text/css">
+.npf_row {
+    margin: 0 !important;
+}
+
+.tmblr-full img{
+    border:0.5px solid #fff !important;
+    box-sizing:border-box !important;
+}
+
+::selection {
+background: ;
+color:;
+}
+
+::-moz-selection {
+background: ;
+color:;
+}
+
+#s-m-t-tooltip{
+    margin: 20px 0 0 20px;
+    padding: 5px;
+    max-width: 300px;
+    background-color:#fff;
+    color:#000;
+    border:0px solid #ffffff;
+    z-index: 9999;
+    
+}
+
+@font-face{
+    font-family: 'Magica';
+    src: url(https://static.tumblr.com/p6yopnt/Qkiqnu0r5/theheart.ttf);
+}
+@font-face{
+    font-family: 'DEAD END';
+    src: url(https://static.tumblr.com/pvnotae/DzVqdg2j5/dead_end.ttf);
+}
+@font-face{
+    font-family: 'Decibil';
+    src: url(https://static.tumblr.com/pvnotae/kwwqdg2pw/decibel_2.ttf);
+}
+@font-face{
+    font-family: 'Aachen';
+    src: url(https://static.tumblr.com/pvnotae/YIoqdg2yp/aachen-bold-opentype.otf);
+}
+
+body {
+    margin:0px;
+    background:#c0c0c0;
+    background-image: url('https://64.media.tumblr.com/8d96a1a1257500666de011e757f31557/16578c11625771cf-88/s2048x3072/4b90424d1ec33b55be65a2af07984043c7921c63.png');
+    
+    
+    background-repeat:repeat;
+    
+    background-attachment:fixed;
+    font-family:arial;
+    font-size:20px;
+    color:#ffffff;
+}
+
+p{
+    margin:5px 0px;
+    padding:0;
+}
+
+pre { 
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
+a{
+    color:#000000;
+    
+    
+    text-shadow: -1px 0 #ffffff, 0 1px #ffffff, 1px 0 #ffffff, 0 -1px #ffffff;
+    
+    text-decoration:none;
+    transition:0.5s;
+}
+
+a:hover{
+    color:#ffffff;
+    
+    
+    text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px 			#000000;
+    
+    
+    cursor:help;
+}
+
+a.tumblr_blog{
+    display:inline-block;
+    margin-bottom:5px;
+} 
+
+li{
+    margin-left:-15px;
+}
+
+#wrapper{
+    width:calc(825px + (0px * 2));
+    margin:auto;
+    animation:fadeEffect 1s;
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+#sidebar{
+    position:fixed;
+    display: flex;   
+    flex-direction:column;
+    height:fit-content;
+    height:-moz-fit-content;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+#content{
+    float:right;
+}
+
+#title{
+    width:275px;
+    font-size:45px;
+    text-align:center;
+    padding-bottom:5px;
+    margin-top:calc(-45px + -7.5px);
+    font-family:aachen;
+}
+
+#title a{
+    color:#000000;
+    
+    
+    text-shadow: -1px 0 #ffffff, 0 1px #ffffff, 1px 0 #ffffff, 0 -1px #ffffff;
+    
+}
+ 
+#title a:hover{
+    color:#ffffff;
+    
+    
+    text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000;
+    
+    transition:0.5s;
+    cursor:help;
+}
+
+#icon{
+    border:0px solid #ffffff;
+    width:275px;
+    
+    
+    background:#000000;
+    background-image:url('https://assets.tumblr.com/images/x.gif?v=1');
+}
+
+#icon img{
+    display:block;
+    box-sizing:border-box;
+    border:0.5px solid #fff;
+    
+}
+
+#hover{
+    max-height:0px;
+    text-align:center;
+    opacity:0;
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+    -moz-transition: all 0.7s ease;
+     -o-transition: all 0.7s ease;
+     overflow:hidden;
+}
+
+#icon:hover #hover{
+    opacity:1;
+    max-height:500px;
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+    -moz-transition: all 0.7s ease;
+    -o-transition: all 0.7s ease;
+}
+
+#links{
+    border-left:0.5px solid #fff;
+    border-right:0.5px solid #fff;
+}
+
+.post{
+    width:500px;
+    margin:50px auto;
+    overflow:hidden;
+    border: 0px solid #ffffff;
+    background:#000000;
+    background-image:url('https://assets.tumblr.com/images/x.gif?v=1');
+    box-sizing:border-box;
+    
+    
+}
+
+.footer{
+    text-align:center;
+    margin:auto;
+    margin-top:20px;
+    border-left:0.5px solid #fff;
+    border-right:0.5px solid #fff;
+    width:200px;
+}
+
+.answer .embed_iframe{
+    width: 340px;
+}
+
+.nfp_row{
+    margin-left:0px;
+    margin-right:0px;
+}
+
+#nav{
+    margin-bottom:50px;
+    text-align:center;
+    display:flex;
+    justify-content:space-evenly;
+    font-size:45px;
+}
+
+#navbutton{
+    padding:20px;
+    background-color:#000000;
+    
+    background-image:url('https://assets.tumblr.com/images/x.gif?v=1');
+}
+
+video{
+    max-width:100%;
+    height:auto!important;
+}
+
+.video-container {
+    overflow: hidden;
+    
+}
+ 
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: center;
+    max-width: 460px;
+    max-height: 460px;
+    border:0.5px solid #fff;
+    box-sizing:border-box;
+    
+}
+ 
+.video-wrapper {
+    max-width: 460px;
+    max-height: 460px;
+    
+ 
+}
+
+iframe.tumblr_audio_player {
+    height: 85px;
+    border:0.5px solid #fff;
+    box-sizing:border-box;
+    
+    
+}
+
+.media{
+    margin:0 0 0px 0;
+    text-align:center;
+    
+}
+
+.media:hover{
+    
+}
+
+.media img{
+    border:0.5px solid #fff;
+    display:block;
+    box-sizing:border-box;
+    
+}
+
+.title{
+    font-size:calc(20px * 2 - 10px);
+    font-weight:bold;
+    margin:10px 0 10px 0;
+    color:#ffffff;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-size:calc(20px * 2 - 10px);
+    font-weight:bold;
+    margin:10px 0 10px 0;
+    color:#ffffff;
+}
+
+.quote{
+    font-weight:normal;
+    font-size:20;
+    font-style:italic;
+    margin:0 0 10px 0;
+}
+
+.question {
+    position: relative;
+    border:0.5px solid #fff;
+    background-color:#000000;
+    
+    padding: 20px;
+    margin-left:20px;
+    width:100%;
+    word-break: break-all;
+}
+
+.asker{
+    display:flex;
+    align-items: flex-start;
+}
+
+.asker img{
+    border:0.5px solid #fff;
+    
+}
+
+.answer{
+    position: relative;
+    border:0.5px solid #fff;
+    background-color:#000000;
+    
+    padding: 20px;
+    margin-right:20px;
+    width:100%;
+    word-break: break-all;
+}
+
+.answerer{
+    margin-top:20px;
+    display:flex;
+    align-items: flex-start;
+}
+
+.answerer img{
+    border:0.5px solid #fff;
+    
+}
+
+.caption{
+    margin-top:10px;
+}
+
+blockquote{
+    margin:0px;
+    padding-left:10px;
+    border-left:0.5px solid #fff;
+}
+
+blockquote img{
+    max-width:100%;
+    height:auto;
+    object-fit:cover;
+    display: block;
+    border:0.5px solid #fff;
+    box-sizing:border-box;
+    
+}
+
+img{
+    max-width:100%;
+    height:auto;
+    
+}
+
+ol.notes{
+    border:0.5px solid #fff;
+    background-color:#000000;
+    
+    margin-top:20px;
+    padding:20px;
+    list-style-type:none;
+    max-height:200px;
+    overflow:auto;
+    margin-bottom:0px;
+}
+
+ol.notes li.note img{
+    width:16px;
+    height:16px;
+    margin-right:3px;
+    
+}
+
+ol.notes li.note{
+    margin:0px;
+}
+
+.tags {
+    max-height:0px;
+    text-align:center;
+    opacity:0;
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+    -moz-transition: all 0.7s ease;
+    -o-transition: all 0.7s ease;
+    overflow:hidden;
+}
+
+.post:hover .tags{
+   opacity:1;
+   max-height:300px;
+   -webkit-transition: all 0.7s ease;
+   transition: all 0.7s ease;
+   -moz-transition: all 0.7s ease;
+   -o-transition: all 0.7s ease;
+}
+
+/***** the entire photoset/photoset container *****/
+[photoset-layout] {
+  grid-gap: 5px; /* this is the gap between both the rows and the columns; you should probably use this if they are the same value */
+}
+
+/***** the image container *****/
+[photoset-layout] div {
+  padding: ##; /* padding in the each image's container */
+  border: _____; /* border around each image's container */
+}
+
+/***** the image *****/
+[photoset-layout] img {
+    border:0.5px solid #fff; /* border around each image */
+     /* each image's border radius */
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+[photoset-layout] div {
+  cursor: help;
+}
+
+.answer .embed_iframe{
+    width: 240px;
+}
+
+</style>
